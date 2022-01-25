@@ -1,48 +1,56 @@
 // Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-
-//require js files in src directory - template helper code
-
+//require js files in src directory - template helper codes 
 
 
-
-
-
-// Create an array of questions for user input
+    // Create an array of questions for user input
 const questions = 
-    [
-        {
-            type: 'list',
-            message: 'What type of license does this project have?',
-            name: 'license',
-            choices: [ "MIT", "GNU GPLv3", "Apache-2.0" ],
-        },
-    ];
+[  
+  
+    {
+        type: 'list',
+        message: 'What type of team member would you like to add?',
+        name: 'role',
+        choices: [ "Manager", "Engineer", "Intern", "Done"],
+    },
+    {
+        type: 'input',
+        message: 'Enter manager office number:',
+        name: 'office',
+    },
+    {
+        type: 'input',
+        message: 'Enter engineer github username:',
+        name: 'gitUser',
+    },
+    {
+        type: 'input',
+        message: 'Enter the school the intern attends:',
+        name: 'school',
+    },
+];
 
-// Create a function to write README file
-function writeToFile(repoName, markdownText) {
 
-    fs.writeFile(`${repoName}README.md`, markdownText, (err) =>
-    err ? console.error(err) : console.log('Success!')  //if there's an error, console error it, otherwise, show success 
-    );
-}
+
 
 // Create a function to initialize app
 function init() {
 
     inquirer
-    .prompt(questions)  //prompt user for questions 
+     //prompt user for questions 
+
+    .prompt(questions) 
 
     .then((response) => {  //only after we get prompts, then 
-        //console.log(response);
+        console.log(response);
   
-        const { repoName } = response;  //object destructuring to pull out file name 
+         //object destructuring to pull out role name 
 
-        //call fxn to write the file with paramenters of the filename and the returned data from generateMarkdown on other js file 
-        writeToFile(repoName, generateMarkdown(response)); 
+        //call fxn to write the file with paramenters of the filename 
+        //eventually we'll pass the returned HTML data from on other js files 
+        //writeToFile(response); 
     });
 }
 
-// Function call to initialize app
-init();
+init();  // Function call to initialize app
