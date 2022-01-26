@@ -13,11 +13,7 @@ const Intern  = require("./lib/Intern");
 
 const allTeamArray = []; //create empty array of all employees, we will push each completed team member object into. 
 
-
 // Create arrays of questions for various user inputs
-
-
-
 const newManagerQ = [  
     {
         type: 'list',
@@ -27,8 +23,6 @@ const newManagerQ = [
     },
 ];
  
-
-
 const newRoleQuestions = [  
     {
         type: 'list',
@@ -37,7 +31,6 @@ const newRoleQuestions = [
         choices: [ "Manager", "Engineer", "Intern", "Done"],
     },
 ];
-
 
 const questions = [  
     {
@@ -57,7 +50,6 @@ const questions = [
     },
 ]
    
-
 const managerQuestions = 
 [
     {
@@ -72,7 +64,7 @@ const engineerQuestions =
     {
         type: 'input',
         message: 'Enter engineer github username:',
-        name: 'gitUser',
+        name: 'gitHub',
     },
 ];
 
@@ -86,7 +78,6 @@ const internQuestions =
 ];
 
 
-
 //writeToFile(response); 
 
 
@@ -97,7 +88,7 @@ function init() {
         const { managerYN } = response;
 
         if (managerYN === "Yes"){  //ask user if they'd like a new manager. 
-            manager();   
+            makeManager();   
         } else {
             newRole(response);  
         }
@@ -105,18 +96,45 @@ function init() {
     })    
 }
 
-
-const manager = () => {
+const makeManager = () => {
     inquirer.prompt(questions).then((response) => {
         const manager = new Manager(response.fullName, response.id, response.email);
         
         inquirer.prompt(managerQuestions).then((response) => {
 
             manager.office = response.office; 
+            console.log(manager);
+            allTeamArray.push(manager);
+            newRole();
+        })
+    });
+}
 
-            console.log(manager)
+const makeEngineer = () => {
+    inquirer.prompt(questions).then((response) => {
+        const engineer = new Engineer(response.fullName, response.id, response.email);
+        
+        inquirer.prompt(engineerQuestions).then((response) => {
 
-            allTeamArray.push(manager)
+            engineer.gitHUb = response.gitHub; 
+            console.log(engineer)
+            allTeamArray.push(engineer)
+            newRole();
+        })
+    });
+}
+
+
+const makeIntern = () => {
+    inquirer.prompt(questions).then((response) => {
+        const intern = new Intern(response.fullName, response.id, response.email);
+        
+        inquirer.prompt(internQuestions).then((response) => {
+
+            intern.school = response.school; 
+            console.log(intern)
+            allTeamArray.push(intern)
+            newRole();
         })
     });
 }
@@ -132,37 +150,17 @@ const newRole = () => {
 
         //write conditionals that determine which set of follow up questions to ask 
         if (role === "Manager"){
-        inquirer
-            .prompt(managerQuestions)  //ask manager questions
-            .then ((managerResponse) => {
-                console.log(managerResponse);
-            })
-            .then (() => {
-                newRole();  //ask again if there is another team member to add. 
-            });
+            makeManager();
         }
         if (role === "Engineer"){
-        inquirer
-            .prompt(engineerQuestions) //ask engineer questions
-            .then ((engineerResponse) => {
-                console.log(engineerResponse);
-            })
-            .then (() => {
-                newRole(); //ask again if there is another team member to add. 
-            });
+            makeEngineer();
         }
         if (role === "Intern"){
-        inquirer
-            .prompt(internQuestions) //ask intern questions
-            .then ((internResponse) => {
-                console.log(internResponse);
-            })
-            .then (() => {
-                newRole; ///ask again if there is another team member to add. 
-            });
+            makeIntern();
         }
         if (role === "Done"){
         console.log("Your team is done! run write file fxn");
+        console.log(allTeamArray);
             //call fxn to write the file with paramenters of the filename 
             //eventually we'll pass the returned HTML data from on other js files  
         }
