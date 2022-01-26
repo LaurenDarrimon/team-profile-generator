@@ -4,7 +4,7 @@ const Engineer  = require("../lib/Engineer");
 //In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
 
 describe("Engineer class should have the following properties and methods", () => {
-    //ATTRIBUTES - tests for attributes belonging to Employee
+    //ATTRIBUTES - tests for attributes belonging to engineer
 
     it(`github username`, () => {
       //Arrange
@@ -17,7 +17,7 @@ describe("Engineer class should have the following properties and methods", () =
     });
 
   
-    //METHODS - tests for methods belonging to Employee
+    //METHODS - tests for methods belonging to Engineer
 
     describe (`getGitHub() method on employee class will reurn the github username`, () => {
       //Arrange
