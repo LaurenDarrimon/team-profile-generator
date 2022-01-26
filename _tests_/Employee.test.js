@@ -9,9 +9,15 @@ const Intern  = require("../lib/Intern");
 describe("Employee class", () => {
     
     //ATTRIBUTES - tests for attributes belonging to Employee
-    it(`name`, () => {
+    it(`name returns a string`, () => {
+      //Arrange
+      //Act
+      const employee = new Employee('Luke Skywalker', 1,'email@jedi.com');
 
-      expect(new Employee("?").visible).toBe(true); 
+      expect(employee.getName()).toEqual(expect.any(String));
+
+      console.log(`Employee getName(): ${employee.getName()}`)
+
     });
     
     it(`id`, () => {
@@ -54,18 +60,6 @@ describe("Employee class", () => {
 
 
 
-`name`
 
-`id`
-
-`email`
-
-`getName()`
-
-`getId()`
-
-`getEmail()`
-
-`getRole()`//returns `'Employee'`
 
 
