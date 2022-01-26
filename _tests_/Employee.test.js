@@ -12,7 +12,7 @@ describe("Employee class should have the following properties and methods", () =
       //Act
       const employee  = new Employee(jediName, 1, 'email@jedi.com')
       //expect
-      expect((employee.name).toEqual("Luke Skywalker"));
+      expect(employee.fullName).toEqual("Luke Skywalker");
     });
 
     
@@ -22,7 +22,7 @@ describe("Employee class should have the following properties and methods", () =
       //Act
       const employee  = new Employee(jediName, 1, 'email@jedi.com')
       //expect
-      expect((employee.id).toEqual(1));
+      expect(employee.id).toEqual(1);
     });
   
 
@@ -33,7 +33,7 @@ describe("Employee class should have the following properties and methods", () =
         //Act
         const employee  = new Employee(jediName, 1, jediEmail)
         //expect
-        expect((employee.email).toEqual('email@jedi.com'));
+        expect(employee.email).toEqual('email@jedi.com');
     });
 
   
@@ -45,7 +45,7 @@ describe("Employee class should have the following properties and methods", () =
       //Act
       const employee  = new Employee(jediName, 1, 'email@jedi.com')
       //expect
-      expect((employee.getName().toString()).toEqual("Luke Skywalker"));
+      expect(employee.getName().toString()).toEqual("Luke Skywalker");
     });
 
     describe(`getId()`, () => {
@@ -54,7 +54,7 @@ describe("Employee class should have the following properties and methods", () =
       //Act
       const employee  = new Employee(jediName, 1, 'email@jedi.com')
       //expect
-      expect((employee.getID()).toEqual(1));
+      expect(employee.getID()).toEqual(1);
     });
 
 
@@ -65,15 +65,18 @@ describe("Employee class should have the following properties and methods", () =
       //Act
       const employee  = new Employee(jediName, 1, jediEmail)
       //expect
-      expect((employee.getemail()).toBe('email@jedi.com'));
+      expect(employee.getEmail()).toBe('email@jedi.com');
     });
   
     describe(`getRole()`, () => {
-      it("returns Employee", () => {
+      it("returns employee", () => {
+         //Arrange
+        const jediEmail = 'email@jedi.com'
+        const jediName = "Luke Skywalker"
         //Act
         const employee  = new Employee(jediName, 1, jediEmail)
         //expect
-        expect((employee.getrole()).toBe("Employee"));
+        expect(employee.getRole()).toBe("employee");
       });
     });
   });
