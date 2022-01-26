@@ -1,2 +1,13 @@
-const Employee  = require("../src/Employee");
-const Engineer  = require("../src/Engineer");
+const Employee  = require("../lib/Employee");
+const Engineer  = require("../lib/Engineer");
+
+
+
+//In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
+
+`github`//GitHub username
+
+`getGithub()`
+
+`getRole()` //overridden to return `'Engineer'`
+
