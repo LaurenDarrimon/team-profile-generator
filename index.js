@@ -14,21 +14,9 @@ const Employee = require("./lib/Employee");
 const employee = new Employee();
 
 
-
 // Create a function to initialize app
 function init() {
-
-    inquirer
-     //prompt user for questions 
-
-    .prompt(employee.questions) 
-
-    .then((response) => {  //only after we get prompts, then 
-        console.log(response);
-  
-        //const { role } = response; //object destructuring to pull out role name 
-        
-    });
+    employee.getName(); 
 }
 
 
