@@ -7,8 +7,8 @@ const Intern  = require("../lib/Intern");
 
 //In addition to `Employee`'s properties and methods, `Intern` will also have the following:
 
-`school`
+//`school`
 
-`getSchool()`
+//`getSchool()`
 
-`getRole()`  // return `'Intern'`
+//`getRole()`  // return `'Intern'`

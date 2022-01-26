@@ -1,57 +1,79 @@
 const Employee  = require("../lib/Employee");
-const Engineer  = require("../lib/Engineer");
-const Manager  = require("../lib/Manager");
-const Intern  = require("../lib/Intern");
 
 //The first class is an `Employee` parent class with the following properties and methods:
 
 
-describe("Employee class", () => {
-    
+describe("Employee class should have the following properties and methods", () => {
     //ATTRIBUTES - tests for attributes belonging to Employee
-    it(`name returns a string`, () => {
+
+    it(`Key of name on employee object returns a matching string value`, () => {
       //Arrange
+      const jediName = "Luke Skywalker"
       //Act
-      const employee = new Employee('Luke Skywalker', 1,'email@jedi.com');
-
-      expect(employee.getName()).toEqual(expect.any(String));
-
-      console.log(`Employee getName(): ${employee.getName()}`)
-
+      const employee  = new Employee(jediName, 1, 'email@jedi.com')
+      //expect
+      expect((employee.name).toEqual("Luke Skywalker"));
     });
+
     
-    it(`id`, () => {
-      expect(new Employee("a").visible).toBe(false); 
+    it(`Key of id on employee object returns a matching number value`, () => {  
+      //Arrange
+      const jediName = "Luke Skywalker"
+      //Act
+      const employee  = new Employee(jediName, 1, 'email@jedi.com')
+      //expect
+      expect((employee.id).toEqual(1));
     });
   
-    it(`email`, () => {
-      expect(new Employee("a").toString()).toBe("_");
+
+    it(`Key of email on employee object returns a matching string value`, () => {
+        //Arrange
+        const jediEmail = 'email@jedi.com'
+        const jediName = "Luke Skywalker"
+        //Act
+        const employee  = new Employee(jediName, 1, jediEmail)
+        //expect
+        expect((employee.email).toEqual('email@jedi.com'));
     });
+
   
-    describe (`getName()`, () => {
-      it("gets the name")  
-      expect(new Employee("?").toString()).toBe("?");
-    });
-
-
     //METHODS - tests for methods belonging to Employee
+
+    describe (`getName() method on employee class will reurn the name`, () => {
+      //Arrange
+      const jediName = "Luke Skywalker"
+      //Act
+      const employee  = new Employee(jediName, 1, 'email@jedi.com')
+      //expect
+      expect((employee.getName().toString()).toEqual("Luke Skywalker"));
+    });
+
     describe(`getId()`, () => {
-      it("gets the ID", () => {
-        expect(new Employee().method(arg)).toBe(something);
-      });
+      //Arrange
+      const jediName = "Luke Skywalker"
+      //Act
+      const employee  = new Employee(jediName, 1, 'email@jedi.com')
+      //expect
+      expect((employee.getID()).toEqual(1));
     });
 
 
     describe(`getEmail()`, () => {
-      it("returns character", () => {
-        expect(new Employee("l").getSolution()).toBe("l");
-      });
+      //Arrange
+      const jediEmail = 'email@jedi.com'
+      const jediName = "Luke Skywalker"
+      //Act
+      const employee  = new Employee(jediName, 1, jediEmail)
+      //expect
+      expect((employee.getemail()).toBe('email@jedi.com'));
     });
   
     describe(`getRole()`, () => {
-    
       it("returns Employee", () => {
-        expect(new Letter("l").getSolution()).toBe("l");
+        //Act
+        const employee  = new Employee(jediName, 1, jediEmail)
+        //expect
+        expect((employee.getrole()).toBe("Employee"));
       });
     });
   });
