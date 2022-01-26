@@ -1,7 +1,10 @@
 // Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
+
 //require js files in src directory - template helper codes 
+const Employee = require("src/Employee");
+
 
 
     // Create an array of questions for user input
