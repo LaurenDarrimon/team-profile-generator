@@ -1,5 +1,3 @@
-let allEngineers = ``;
-
 
 const generateEngineer = (role, fullName, id, email, gitHub) => {
 
@@ -34,11 +32,8 @@ const generateEngineer = (role, fullName, id, email, gitHub) => {
         </div>
         `;
 
-        allEngineers += profileItemHTML;
-
-        console.log("we generated an engineer HTML")
-        console.log(allEngineers)
+    return profileItemHTML;
 }
 
-exports.allEngineers = allEngineers;
-exports.generateEngineer =  generateEngineer;
+
+module.exports =  generateEngineer;

@@ -1,5 +1,3 @@
-let allInterns = ``;
-
 const generateIntern = (role, fullName, id, email, school) => {
 
     let profileItemHTML = //fill the div with html elements from response data 
@@ -24,13 +22,7 @@ const generateIntern = (role, fullName, id, email, school) => {
         </div>
         `;
 
-        allInterns += profileItemHTML;
-
-        console.log(allInterns)
-
+    return profileItemHTML;
 }
 
-module.exports = {
-    generateIntern: generateIntern,
-    allInterns: allInterns,
-}
+module.exports = generateIntern;

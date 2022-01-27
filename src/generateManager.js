@@ -1,5 +1,3 @@
-let allManagers = ``;
-
 const generateManager = (role, fullName, id, email, office) => {
 
     let profileItemHTML = //fill the div with html elements from response data 
@@ -24,17 +22,12 @@ const generateManager = (role, fullName, id, email, office) => {
         </div>
         `;
 
-        allManagers += profileItemHTML;
-        
-        console.log(allManagers);
+    
 
-        return allManagers;
+        return profileItemHTML;
 
         
 }
 
 
-module.exports = {
-    generateManager: generateManager,
-    allManagers: allManagers,
-}
+module.exports = generateManager;

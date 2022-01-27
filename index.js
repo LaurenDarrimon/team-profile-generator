@@ -17,6 +17,10 @@ const generateManager  = require("./src/generateManager");
 
 
 const allTeamArray = []; //create empty array of all employees, we will push each completed team member object into. 
+let allEngineers = ``;
+let allInterns = ``;
+let allManagers = ``;
+
 
 // Create arrays of questions for various user inputs
 const newManagerQ = [  
@@ -109,7 +113,11 @@ const makeManager = () => {
             allTeamArray.push(manager);
 
             const { role, fullName, id, email, office } = manager; 
-            generateManager.generateManager(role, fullName, id, email, office);
+            const profileItemHTML = generateManager(role, fullName, id, email, office);
+
+            allManagers += profileItemHTML;
+        
+            console.log(allManagers);
 
             newRole();
         })
@@ -117,6 +125,7 @@ const makeManager = () => {
 }
 
 const makeEngineer = () => {
+
     inquirer.prompt(questions).then((response) => {
         const engineer = new Engineer(response.fullName, response.id, response.email);
         
@@ -127,7 +136,12 @@ const makeEngineer = () => {
             allTeamArray.push(engineer)
 
             const { role, fullName, id, email, gitHub } = engineer; 
-            generateEngineer.generateEngineer (role, fullName, id, email, gitHub);
+            const profileItemHTML = generateEngineer (role, fullName, id, email, gitHub);
+
+            allEngineers += profileItemHTML;
+
+            console.log("we generated an engineer HTML")
+            console.log(allEngineers)
 
             newRole();
         })
@@ -146,7 +160,11 @@ const makeIntern = () => {
             allTeamArray.push(intern)
 
             const { role, fullName, id, email, school } = intern; 
-            generateIntern.generateIntern (role, fullName, id, email, school);
+            const profileItemHTML  = generateIntern (role, fullName, id, email, school);
+
+            allInterns += profileItemHTML;
+
+            console.log(allInterns)
 
             newRole();
         })
@@ -172,7 +190,7 @@ const newRole = () => {
             }
             if (role === "Done"){
             
-                const textHTML = generateHTML(); 
+                const textHTML = generateHTML(allManagers, allEngineers, allInterns); 
                 writeToFile(textHTML);
             }
     })

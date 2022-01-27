@@ -1,14 +1,8 @@
-const fromEngineer  = require("./generateEngineer");
-const fromIntern  = require("./generateIntern");
-const fromManager  = require("./generateManager");
+const generateHTML = (allManagers, allEngineers, allInterns) => {
 
-const generateHTML = () => {
+    //console.log("calling all the managers");       
+    //console.log(generateManager.allManagers);
 
-
-    console.log("calling all the managers");       
-    console.log(fromManager.allManagers);
-
-    
 const textHTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -54,9 +48,9 @@ const textHTML = `
             </div>
             <div class="col-12">
                 <div id="profile-list-section" class="row"> 
-                ${fromManager.allManagers}
-                ${fromEngineer.allEngineers}
-                ${fromIntern.allInterns}
+                ${allManagers}
+                ${allEngineers}
+                ${allInterns}
                 </div>
             </div> 
         </section>
