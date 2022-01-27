@@ -10,6 +10,9 @@ const Engineer  = require("./lib/Engineer");
 const Intern  = require("./lib/Intern");
 
 //require template helper codes files 
+const generateHTML  = require("./src/generateHTML");
+
+
 
 const allTeamArray = []; //create empty array of all employees, we will push each completed team member object into. 
 
@@ -154,16 +157,26 @@ const newRole = () => {
             makeIntern();
         }
         if (role === "Done"){
-        console.log("Your team is done! run write file fxn");
-        console.log(allTeamArray);
-            //call fxn to write the file with paramenters of the filename 
-            //eventually we'll pass the returned HTML data from on other js files  
-        }
+            console.log("Your team is done! run write file fxn");
+            console.log(allTeamArray);
 
-        })
+            const textHTML = generateHTML(allTeamArray); 
+
+            writeToFile(textHTML);
+            
+             //call fxn to generate HTML
+        }
+    })
 }
 
-//writeToFile(response); 
+
+
+const writeToFile = (textHTML) => {
+    fs.writeFile(`dist/devTeam.html`, textHTML, (err) =>
+    err ? console.error(err) : console.log('Success!')  //if there's an error, console error it, otherwise, show success 
+    );
+
+}
 
 init();  // Function call to initialize app
 
