@@ -122,7 +122,7 @@ const makeEngineer = () => {
         
         inquirer.prompt(engineerQuestions).then((response) => {
 
-            engineer.gitHUb = response.gitHub; 
+            engineer.gitHub = response.gitHub; 
             console.log(engineer)
             allTeamArray.push(engineer)
 

@@ -1,8 +1,12 @@
-const generateEngineer  = require("./generateEngineer");
-const generateIntern  = require("./generateIntern");
-const generateManager  = require("./generateManager");
+const fromEngineer  = require("./generateEngineer");
+const fromIntern  = require("./generateIntern");
+const fromManager  = require("./generateManager");
 
 const generateHTML = () => {
+
+
+    console.log("calling all the managers");       
+    console.log(fromManager.allManagers);
 
     
 const textHTML = `
@@ -44,17 +48,15 @@ const textHTML = `
             </div>
         </section>
 
-
-
         <section class="row" id="profiles">
             <div class="col-12">
                 <h2 class="display-4">PROFILES</h2>
             </div>
             <div class="col-12">
-                <div id="profile-list-section" class="row">
-                ${generateManager.allManagers}
-                ${generateEngineer.allEngineers}
-                ${generateIntern.allInterns}
+                <div id="profile-list-section" class="row"> 
+                ${fromManager.allManagers}
+                ${fromEngineer.allEngineers}
+                ${fromIntern.allInterns}
                 </div>
             </div> 
         </section>

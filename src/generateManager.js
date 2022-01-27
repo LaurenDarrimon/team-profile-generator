@@ -25,6 +25,12 @@ const generateManager = (role, fullName, id, email, office) => {
         `;
 
         allManagers += profileItemHTML;
+        
+        console.log(allManagers);
+
+        return allManagers;
+
+        
 }
 
 

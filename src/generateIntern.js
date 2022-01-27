@@ -26,9 +26,9 @@ const generateIntern = (role, fullName, id, email, school) => {
 
         allInterns += profileItemHTML;
 
-        
-}
+        console.log(allInterns)
 
+}
 
 module.exports = {
     generateIntern: generateIntern,

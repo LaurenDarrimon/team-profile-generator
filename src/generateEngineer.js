@@ -36,12 +36,9 @@ const generateEngineer = (role, fullName, id, email, gitHub) => {
 
         allEngineers += profileItemHTML;
 
-
         console.log("we generated an engineer HTML")
         console.log(allEngineers)
 }
 
-module.exports = {
-    generateEngineer: generateEngineer,
-    allEngineers: allEngineers,
-}
+exports.allEngineers = allEngineers;
+exports.generateEngineer =  generateEngineer;
