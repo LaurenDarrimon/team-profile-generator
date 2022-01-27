@@ -3,15 +3,17 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const internal = require("stream");
 
-//require js files in lib directory 
+//require js files in lib directory for object instantiation
 const Employee = require("./lib/Employee");  
 const Manager = require("./lib/Manager");
 const Engineer  = require("./lib/Engineer"); 
 const Intern  = require("./lib/Intern");
 
-//require template helper codes files 
+//require template helper codes file
 const generateHTML  = require("./src/generateHTML");
-
+const generateEngineer  = require("./src/generateEngineer");
+const generateIntern  = require("./src/generateIntern");
+const generateManager  = require("./src/generateManager");
 
 
 const allTeamArray = []; //create empty array of all employees, we will push each completed team member object into. 
@@ -88,7 +90,7 @@ function init() {
         const { managerYN } = response;
 
         if (managerYN === "Yes"){  //ask user if they'd like a new manager. 
-            makeManager();   
+            makeManager(); 
         } else {
             newRole(response);  
         }
@@ -105,6 +107,10 @@ const makeManager = () => {
             manager.office = response.office; 
             console.log(manager);
             allTeamArray.push(manager);
+
+            const { role, fullName, id, email, office } = manager; 
+            generateManager.generateManager(role, fullName, id, email, office);
+
             newRole();
         })
     });
@@ -119,6 +125,10 @@ const makeEngineer = () => {
             engineer.gitHUb = response.gitHub; 
             console.log(engineer)
             allTeamArray.push(engineer)
+
+            const { role, fullName, id, email, gitHub } = engineer; 
+            generateEngineer.generateEngineer (role, fullName, id, email, gitHub);
+
             newRole();
         })
     });
@@ -134,6 +144,10 @@ const makeIntern = () => {
             intern.school = response.school; 
             console.log(intern)
             allTeamArray.push(intern)
+
+            const { role, fullName, id, email, school } = intern; 
+            generateIntern.generateIntern (role, fullName, id, email, school);
+
             newRole();
         })
     });
@@ -146,36 +160,29 @@ const newRole = () => {
 
             const { role } = response; //object destructuring to pull out role name 
 
-        //write conditionals that determine which set of follow up questions to ask 
-        if (role === "Manager"){
-            makeManager();
-        }
-        if (role === "Engineer"){
-            makeEngineer();
-        }
-        if (role === "Intern"){
-            makeIntern();
-        }
-        if (role === "Done"){
-            console.log("Your team is done! run write file fxn");
-            console.log(allTeamArray);
-
-            const textHTML = generateHTML(allTeamArray); 
-
-            writeToFile(textHTML);
+            //write conditionals that determine which set of follow up questions to ask 
+            if (role === "Manager"){
+                makeManager();
+            }
+            if (role === "Engineer"){
+                makeEngineer();
+            }
+            if (role === "Intern"){
+                makeIntern();
+            }
+            if (role === "Done"){
             
-             //call fxn to generate HTML
-        }
+                const textHTML = generateHTML(); 
+                writeToFile(textHTML);
+            }
     })
 }
 
-
-
 const writeToFile = (textHTML) => {
     fs.writeFile(`dist/devTeam.html`, textHTML, (err) =>
-    err ? console.error(err) : console.log('Success!')  //if there's an error, console error it, otherwise, show success 
-    );
-
+    err ? console.error(err) : console.log("Your team is done! Check the ./dist directory for your custom HTML file!")  
+    //if there's an error, console error it, otherwise, show success 
+    ); 
 }
 
 init();  // Function call to initialize app

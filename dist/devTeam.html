@@ -1,11 +1,4 @@
-const generateEngineer  = require("./generateEngineer");
-const generateIntern  = require("./generateIntern");
-const generateManager  = require("./generateManager");
 
-const generateHTML = () => {
-
-    
-const textHTML = `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,9 +45,9 @@ const textHTML = `
             </div>
             <div class="col-12">
                 <div id="profile-list-section" class="row">
-                ${generateManager.allManagers}
-                ${generateEngineer.allEngineers}
-                ${generateIntern.allInterns}
+                
+                
+                
                 </div>
             </div> 
         </section>
@@ -85,9 +78,4 @@ const textHTML = `
 
     <script></script>
 </body>
-</html>`
-
-return textHTML
-};
-
-module.exports = generateHTML; 
+</html>
