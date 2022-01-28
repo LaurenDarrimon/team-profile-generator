@@ -15,7 +15,6 @@ const generateEngineer  = require("./src/generateEngineer");
 const generateIntern  = require("./src/generateIntern");
 const generateManager  = require("./src/generateManager");
 
-
 const allTeamArray = []; //create empty array of all employees, we will push each completed team member object into. 
 let allEngineers = ``;
 let allInterns = ``;
@@ -46,16 +45,19 @@ const questions = [
         type: 'input',
         message: 'Team Member Name',
         name: 'fullName',
+        default: "Leia Organa"
     },
     {
         type: 'input',
         message: 'Employee ID',
         name: 'id',
+        default: "001"
     },
     {
         type: 'input',
         message: 'Email Address',
         name: 'email',
+        default: "general@alliance.org"
     },
 ]
    
@@ -116,9 +118,7 @@ const makeManager = () => {
             const profileItemHTML = generateManager(role, fullName, id, email, office);
 
             allManagers += profileItemHTML;
-        
-            console.log(allManagers);
-
+    
             newRole();
         })
     });
@@ -140,9 +140,6 @@ const makeEngineer = () => {
 
             allEngineers += profileItemHTML;
 
-            console.log("we generated an engineer HTML")
-            console.log(allEngineers)
-
             newRole();
         })
     });
@@ -163,8 +160,6 @@ const makeIntern = () => {
             const profileItemHTML  = generateIntern (role, fullName, id, email, school);
 
             allInterns += profileItemHTML;
-
-            console.log(allInterns)
 
             newRole();
         })

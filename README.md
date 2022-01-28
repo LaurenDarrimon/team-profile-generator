@@ -26,9 +26,7 @@ In order for this application to work, you need to install the following (depend
 node.js and modules: jest, fs, and inquirer. 
 
 ~~~
-npm init  
-npm install fs
-npm install inquirer
+npm install
 ~~~
 
 
@@ -37,6 +35,12 @@ To run the application from the command line:
 
 ~~~
 node index.js
+~~~
+
+To run the tests of the application from the command line: 
+
+~~~
+node test.js
 ~~~
 
 

@@ -45,6 +45,34 @@ section{
     height: auto;
 }
 
+.profile-items{
+    transition: transform .2s;
+    padding: 30px 30px 70px 30px;
+    border: 2px solid lightslategray; 
+    box-shadow: 10px 10px 5px lightgrey;
+    border-radius: 5px;
+
+    background: url(images/team.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.manager{
+    background: url(images/manager.png);
+}
+
+.intern{
+    background: url(images/intern.jpg);
+}
+
+
+
+.profile-items:hover{
+    transform: scale(1.03);
+    box-shadow: 10px 10px 10px lightgrey;
+    
+}
+
 #footer{
     color:black;
     height:auto;
