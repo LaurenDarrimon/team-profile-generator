@@ -45,19 +45,19 @@ const questions = [
         type: 'input',
         message: 'Team Member Name',
         name: 'fullName',
-        default: "Leia Organa"
+        //default: "Leia Organa"
     },
     {
         type: 'input',
         message: 'Employee ID',
         name: 'id',
-        default: "001"
+        //default: "001"
     },
     {
         type: 'input',
         message: 'Email Address',
         name: 'email',
-        default: "general@alliance.org"
+        //default: "general@alliance.org"
     },
 ]
    
@@ -193,7 +193,7 @@ const newRole = () => {
 
 const writeToFile = (textHTML) => {
     fs.writeFile(`dist/devTeam.html`, textHTML, (err) =>
-    err ? console.error(err) : console.log("Your team is done! Check the ./dist directory for your custom HTML file!")  
+    err ? console.error(err) : console.log("\n Your team profile is done! \n Check the ./dist directory for your custom HTML file! \n ")  
     //if there's an error, console error it, otherwise, show success 
     ); 
 }

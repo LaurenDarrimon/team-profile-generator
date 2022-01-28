@@ -3,7 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=appveyor)](https://opensource.org/licenses/MIT) ![Language Badges](https://img.shields.io/github/languages/top/laurenDarrimon/team-profile-generator?style=for-the-badge&logo=appveyor) ![Commits Badge](https://img.shields.io/github/last-commit/laurenDarrimon/team-profile-generator?style=for-the-badge&logo=appveyor) ![Repo Size](https://img.shields.io/github/repo-size/laurenDarrimon/team-profile-generator?style=for-the-badge&logo=appveyor) ![Repo Issues](https://img.shields.io/github/issues/laurenDarrimon/team-profile-generator?style=for-the-badge&logo=appveyor)
     
 ### Description
-Automatically generate a development team page in HTML
+Automatically generate a development team page in HTML through a command line application. REspond to simple prompts and recive back a fully formed HTML page with all of your team members information. 
+
+![Sample of development team profile page](assets/images/team-profile-sample.gif)
 
 ### Table of Contents
 
@@ -37,11 +39,22 @@ To run the application from the command line:
 node index.js
 ~~~
 
+Respond to the user prompts in the command line. Once you are done, download the distribution folder for a complete and styled webpage. [See a full walkthrough video here.](https://drive.google.com/file/d/18vdxYxEn3_g9X2H9Zh5EesJ3hu8Uy-VG/view?usp=sharing) 
+
+![walkthrough of generating page](assets/images/team-prompts.gif)
+
+
+
+### Testing
+
 To run the tests of the application from the command line: 
 
 ~~~
 npm run test
 ~~~
+
+![walkthrough of running tests](assets/images/team-profile-test.gif)
+
 
 
 ### Contributing 
