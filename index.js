@@ -111,7 +111,7 @@ const makeManager = () => {
         inquirer.prompt(managerQuestions).then((response) => {
 
             manager.office = response.office; 
-            console.log(manager);
+            //console.log(manager);
             allTeamArray.push(manager);
 
             const { role, fullName, id, email, office } = manager; 
@@ -132,7 +132,7 @@ const makeEngineer = () => {
         inquirer.prompt(engineerQuestions).then((response) => {
 
             engineer.gitHub = response.gitHub; 
-            console.log(engineer)
+            //console.log(engineer)
             allTeamArray.push(engineer)
 
             const { role, fullName, id, email, gitHub } = engineer; 
@@ -153,7 +153,7 @@ const makeIntern = () => {
         inquirer.prompt(internQuestions).then((response) => {
 
             intern.school = response.school; 
-            console.log(intern)
+            //console.log(intern)
             allTeamArray.push(intern)
 
             const { role, fullName, id, email, school } = intern; 
@@ -169,7 +169,7 @@ const makeIntern = () => {
 
 const newRole = () => {
         inquirer.prompt(newRoleQuestions).then((response) =>{
-            console.log(response);
+            //console.log(response);
 
             const { role } = response; //object destructuring to pull out role name 
 

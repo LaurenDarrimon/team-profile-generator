@@ -40,7 +40,7 @@ node index.js
 To run the tests of the application from the command line: 
 
 ~~~
-node test.js
+npm run test
 ~~~
 
 
